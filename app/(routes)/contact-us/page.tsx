@@ -15,7 +15,7 @@ import {
 	IconBrandInstagram,
 } from "@tabler/icons-react";
 import { ContactIconsList } from "../../_components/contact-us/contactIcons";
-import classes from "../../_components/css/ContactUs.module.css";
+import classes from "../../_components/contact-us/ContactUs.module.css";
 
 const social = [IconBrandTwitter, IconBrandYoutube, IconBrandInstagram];
 

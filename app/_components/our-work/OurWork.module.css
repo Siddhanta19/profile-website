@@ -1,0 +1,5 @@
+.root {
+	align-items: center;
+	box-shadow: var(--mantine-shadow-xl);
+	padding-bottom: rem(20);
+}
