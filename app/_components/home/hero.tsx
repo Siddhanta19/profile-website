@@ -31,15 +31,7 @@ export function Hero() {
 						"We got the fable of sleeping beauty wrong, the prince didn't kiss
 						her to wake her up, no one who's slept for a hundred years is likely
 						to wake up. It was the other way around, he kisses her to wake
-						himself up from the nightmare that has brought him there." -{" "}
-						<span className={classes.highlight}>
-							{" "}
-							<Link
-								className={classes.link}
-								href={"https://youtu.be/yRMFP6D0LVk?si=k2PfRdyY_Ew2vuXR"}>
-								Click Here
-							</Link>{" "}
-						</span>
+						himself up from the nightmare that has brought him there."
 					</Text>
 					<List
 						mt={30}

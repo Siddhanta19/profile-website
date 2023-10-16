@@ -7,77 +7,96 @@ import {
 	Button,
 	useMantineTheme,
 	rem,
+	Box,
+	Image,
 } from "@mantine/core";
 import classes from "./CarouselCards.module.css";
 import "@mantine/carousel/styles.css";
+
+import Uncle from "../../_assets/Uncle.jpg";
+import Logo from "../../_assets/Logo.jpg";
+import SleepingBeauty from "../../_assets/SleepingBeauty.jpg";
+
 import Autoplay from "embla-carousel-autoplay";
 import { useRef } from "react";
+import NextImage, { StaticImageData } from "next/image";
 
 interface CardProps {
-	image: string;
-	title: string;
-	category: string;
+	image: StaticImageData;
+	title: JSX.Element;
+	btnText: string;
+	id: string;
 }
 
-function Card({ image, title, category }: CardProps) {
+function Card({ image, title, btnText, id }: CardProps) {
 	return (
-		<Paper
-			shadow="md"
-			p="xl"
-			radius="md"
-			style={{ backgroundImage: `url(${image})` }}
-			className={classes.card}>
-			<div>
-				<Text className={classes.category} size="xs">
+		<Paper shadow="md" radius="md" className={classes.card}>
+			{/* <Text className={classes.category} size="xs">
 					{category}
-				</Text>
-				<Title order={3} className={classes.title}>
-					{title}
-				</Title>
-			</div>
-			<Button variant="white" color="dark">
-				Read article
-			</Button>
+				</Text> */}
+			<Box className={classes.descContainer}>
+				{title}
+
+				<Button variant="white" color="dark">
+					{btnText}
+				</Button>
+			</Box>
+			<Image
+				component={NextImage}
+				radius={"md"}
+				fit="fill"
+				height={376}
+				src={image}
+				alt={id}
+				className={classes.image}
+			/>
 		</Paper>
 	);
 }
 
 const data = [
 	{
-		image:
-			"https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80",
-		title: "Best forests to visit in North America",
-		category: "nature",
+		image: Uncle,
+		title: (
+			<Title order={3} className={classes.title}>
+				for he who dares must <br /> dare it all
+			</Title>
+		),
+		btnText: "Who is Sujay Sarkar?",
+		id: "uncle",
 	},
 	{
-		image:
-			"https://images.unsplash.com/photo-1559494007-9f5847c49d94?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80",
-		title: "Hawaii beaches review: better than you think",
-		category: "beach",
+		image: Logo,
+		title: (
+			<Title order={3} className={classes.title}>
+				Waifus are Not Real
+			</Title>
+		),
+		btnText: "Am I pretty?",
+		id: "waifu",
+		// category: "beach",
 	},
 	{
-		image:
-			"https://images.unsplash.com/photo-1608481337062-4093bf3ed404?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80",
-		title: "Mountains at night: 12 best locations to enjoy the view",
-		category: "nature",
+		image: SleepingBeauty,
+		title: (
+			<Title order={3} className={classes.title}>
+				We all got the fable of sleeping beauty wrong
+			</Title>
+		),
+		btnText: "Story of Sleeping Beauty?",
+		id: "sleeping beauty",
+		// category: "tourism",
 	},
 	{
-		image:
-			"https://images.unsplash.com/photo-1507272931001-fc06c17e4f43?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80",
-		title: "Aurora in Norway: when to visit for best experience",
-		category: "nature",
-	},
-	{
-		image:
-			"https://images.unsplash.com/photo-1510798831971-661eb04b3739?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80",
-		title: "Best places to visit this winter",
-		category: "tourism",
-	},
-	{
-		image:
-			"https://images.unsplash.com/photo-1582721478779-0ae163c05a60?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80",
-		title: "Active volcanos reviews: travel at your own risk",
-		category: "nature",
+		image: Logo,
+		title: (
+			<Title order={3} className={classes.title}>
+				This is the last slide
+			</Title>
+		),
+		btnText: "Why is this the last slide?",
+		id: "test",
+		// category: "nature",
 	},
 ];
 
@@ -85,7 +104,7 @@ export function CardsCarousel() {
 	const theme = useMantineTheme();
 	const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
 	const slides = data.map((item) => (
-		<Carousel.Slide key={item.title}>
+		<Carousel.Slide key={item.id}>
 			<Card {...item} />
 		</Carousel.Slide>
 	));
@@ -93,12 +112,13 @@ export function CardsCarousel() {
 
 	return (
 		<Carousel
+			// classNames={{ slide: classes.slide }}
 			mb={rem(96)}
 			withControls={mobile ? false : true}
-			slideSize={{ base: "100%", sm: "50%" }}
-			slideGap={{ base: rem(2), sm: "xl" }}
+			slideSize={{ base: "100%", sm: "100%" }}
+			slideGap={{ base: rem(12), sm: "xl" }}
 			align="start"
-			slidesToScroll={mobile ? 1 : 2}
+			// slidesToScroll={mobile ? 1 : 2}
 			plugins={[autoplay.current]}
 			onMouseLeave={autoplay.current.reset}
 			onMouseEnter={autoplay.current.stop}>

@@ -1,20 +1,46 @@
 .card {
 	height: rem(440px);
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	justify-content: space-between;
 	align-items: flex-start;
-	background-size: cover;
-	background-position: center;
+	padding: rem(35) rem(50) rem(40) rem(50);
+	background-color: var(--mantine-color-blue-8);
 }
 
 .title {
 	font-family: Greycliff CF, sans-serif;
 	font-weight: 900;
+	text-transform: capitalize;
+	text-align: center;
 	color: var(--mantine-color-white);
 	line-height: 1.2;
 	font-size: rem(32px);
 	margin-top: var(--mantine-spacing-xs);
+	z-index: 9999;
+	text-align: left;
+}
+
+/* .titleText {
+	font-family: inherit;
+	font-weight: inherit;
+	text-transform: inherit;
+	text-align: inherit;
+	color: inherit;
+	line-height: inherit;
+	font-size: inherit;
+	margin-top: inherit;
+	font-size: inherit;
+	text-align: left;
+} */
+
+.descContainer {
+	min-height: 100%;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: space-around;
 }
 
 .category {
@@ -23,3 +49,9 @@
 	font-weight: 700;
 	text-transform: uppercase;
 }
+
+/* for carousel styles api */
+/* .slide {
+	border: 2px solid red;
+	outline-offset: -2px;
+} */
