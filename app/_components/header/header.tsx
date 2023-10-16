@@ -42,23 +42,23 @@ export function Header() {
 	const computedColorScheme = useComputedColorScheme("light", {
 		getInitialValueInEffect: true,
 	});
+	const pathname = usePathname();
 
 	const items = links.map((link) => (
 		<Link
 			key={link.label}
 			href={link.link}
 			className={classes.link}
-			data-active={usePathname() === link.link || undefined}>
+			data-active={pathname === link.link || undefined}>
 			{link.label}
 		</Link>
 	));
 
-	const pathname = usePathname();
 	// closing the modal when a page is visited
 	useEffect(() => {
 		// run this whenever pathname changes and close the modal
 		close();
-	}, [pathname]);
+	}, [pathname, close]);
 	return (
 		<Box>
 			<header className={classes.header}>

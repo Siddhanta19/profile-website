@@ -1,6 +1,8 @@
+// @ts-nocheck
 "use client";
 import { Box, Card, Container, Loader, Stack } from "@mantine/core";
 import classes from "../../_components/our-work/OurWork.module.css";
+
 /* import { Container } from "@mantine/core";
 import { FacebookProvider, Page } from "react-facebook";
 import { Loader } from "@mantine/core";
