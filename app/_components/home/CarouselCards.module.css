@@ -1,11 +1,31 @@
 .card {
-	height: rem(440px);
+	max-height: rem(440px);
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
+	/* grid-template-columns: auto auto; */
+	gap: var(--mantine-spacing-md);
+	/* justify-content: space-between; */
 	align-items: flex-start;
 	padding: rem(35) rem(50) rem(40) rem(50);
-	background-color: var(--mantine-color-blue-8);
+	/* border-color: light-dark(
+		var(--mantine-color-gray-3),
+		var(--mantine-color-dark-4)
+	); */
+
+	background-color: light-dark(
+		var(--mantine-color-gray-1),
+		var(--mantine-color-dark-6)
+	);
+
+	@media (max-width: $mantine-breakpoint-xs) {
+		padding-top: calc(var(--mantine-spacing-md) * 2);
+		padding-right: calc(var(--mantine-spacing-md) * 2);
+		padding-left: calc(var(--mantine-spacing-md) * 2);
+		padding-bottom: calc(var(--mantine-spacing-md) * 2);
+		flex-direction: column-reverse;
+		justify-content: space-around;
+		/* align-items: center; */
+	}
 }
 
 .title {
@@ -13,12 +33,17 @@
 	font-weight: 900;
 	text-transform: capitalize;
 	text-align: center;
-	color: var(--mantine-color-white);
+	/* color: var(--mantine-color-white); */
 	line-height: 1.2;
 	font-size: rem(32px);
 	margin-top: var(--mantine-spacing-xs);
 	z-index: 9999;
 	text-align: left;
+
+	@media (max-width: $mantine-breakpoint-xs) {
+		font-size: rem(28px);
+		margin-top: 0;
+	}
 }
 
 /* .titleText {
@@ -35,12 +60,21 @@
 } */
 
 .descContainer {
-	min-height: 100%;
+	height: calc(rem(440) - rem(40));
 	flex: 1;
+	/* border: 1px solid black; */
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
 	justify-content: space-around;
+}
+
+.image {
+	width: auto;
+	height: 376px;
+	@media (max-width: $mantine-breakpoint-xs) {
+		height: 256px;
+	}
 }
 
 .category {

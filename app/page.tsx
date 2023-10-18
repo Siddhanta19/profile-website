@@ -5,7 +5,7 @@ import { CardsCarousel } from "./_components/home/CarouselCards";
 
 export default function HomePage() {
 	return (
-		<Container size="md">
+		<Container size="xl">
 			{/* <HeroBullets /> */}
 			<CardsCarousel />
 			<Hero />

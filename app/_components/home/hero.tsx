@@ -20,7 +20,7 @@ import Link from "next/link";
 
 export function Hero() {
 	return (
-		<Container size="lg" p={0}>
+		<Container size="xl" p={0}>
 			<div className={classes.inner}>
 				<div className={classes.content}>
 					<Title className={classes.title}>

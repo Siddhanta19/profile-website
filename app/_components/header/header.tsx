@@ -62,7 +62,7 @@ export function Header() {
 	return (
 		<Box>
 			<header className={classes.header}>
-				<Container size="md" className={classes.inner}>
+				<Container size="xl" className={classes.inner}>
 					<Group>
 						<Link className={classes.highlightColor} href={"/"}>
 							<Image

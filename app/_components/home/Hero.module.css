@@ -1,7 +1,7 @@
 .inner {
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 4px 6px
+		light-dark(var(--mantine-color-gray-4), var(--mantine-color-dark-4));
 	display: flex;
-	justify-content: space-between;
 	/* align-items: center; */
 	padding-top: calc(var(--mantine-spacing-md) * 4);
 	padding-right: calc(var(--mantine-spacing-md) * 3);
@@ -19,9 +19,8 @@
 }
 
 .content {
-	max-width: rem(480px);
+	/* max-width: rem(480px); */
 	margin-right: calc(var(--mantine-spacing-md) * 3);
-
 	@media (max-width: $mantine-breakpoint-md) {
 		max-width: 100%;
 		margin-right: 0;

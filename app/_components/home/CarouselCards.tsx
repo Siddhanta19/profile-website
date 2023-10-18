@@ -9,6 +9,7 @@ import {
 	rem,
 	Box,
 	Image,
+	Stack,
 } from "@mantine/core";
 import classes from "./CarouselCards.module.css";
 import "@mantine/carousel/styles.css";
@@ -34,18 +35,17 @@ function Card({ image, title, btnText, id }: CardProps) {
 			{/* <Text className={classes.category} size="xs">
 					{category}
 				</Text> */}
-			<Box className={classes.descContainer}>
+			<Stack className={classes.descContainer}>
 				{title}
 
 				<Button variant="white" color="dark">
 					{btnText}
 				</Button>
-			</Box>
+			</Stack>
 			<Image
 				component={NextImage}
 				radius={"md"}
 				fit="fill"
-				height={376}
 				src={image}
 				alt={id}
 				className={classes.image}
@@ -59,7 +59,7 @@ const data = [
 		image: Uncle,
 		title: (
 			<Title order={3} className={classes.title}>
-				for he who dares must <br /> dare it all
+				for he who dares must dare it all
 			</Title>
 		),
 		btnText: "Who is Sujay Sarkar?",
