@@ -6,7 +6,7 @@ import SujoySarkar from "../../_assets/SujoySarkar.png";
 export default function AboutUs() {
 	return (
 		<>
-			<Container size={"md"}>
+			<Container size={"xl"}>
 				<Image
 					component={NextImage}
 					src={SujoySarkar}

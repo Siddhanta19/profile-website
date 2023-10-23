@@ -1,7 +1,17 @@
 // @ts-nocheck
 "use client";
-import { Box, Card, Container, Loader, Stack } from "@mantine/core";
+import React, { useEffect, useState } from "react";
+
+import {
+	Box,
+	Card,
+	Container,
+	Loader,
+	Stack,
+	useMantineTheme,
+} from "@mantine/core";
 import classes from "../../_components/our-work/OurWork.module.css";
+import { useMediaQuery } from "@mantine/hooks";
 
 /* import { Container } from "@mantine/core";
 import { FacebookProvider, Page } from "react-facebook";
@@ -25,9 +35,11 @@ export default function OurWorkPage() {
 	);
 } */
 
-import React, { useEffect, useState } from "react";
-
 export default function OurWork() {
+	const theme = useMantineTheme();
+	// get the boolean value for sm breakpoint
+	const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
+
 	// Declare a new state variable 'loading' and set its initial value to true
 	const [loading, setLoading] = useState(true);
 
@@ -46,7 +58,7 @@ export default function OurWork() {
 				window.FB.init({
 					appId: process.env.NEXT_PUBLIC_APP_ID, // Your Facebook App ID
 					xfbml: true, // Parse social plugins on this webpage
-					version: "v14.0", // Use version 18.0 of the SDK
+					version: "v18.0", // Use version 18.0 of the SDK
 				});
 
 				// Subscribe to 'xfbml.render' event which is fired when a plugin has been rendered
@@ -58,7 +70,7 @@ export default function OurWork() {
 
 			// Load the Facebook SDK asynchronously
 			(function (d, s, id) {
-				var js,
+				let js,
 					fjs = d.getElementsByTagName(s)[0];
 				if (d.getElementById(id)) {
 					return;
@@ -81,8 +93,8 @@ export default function OurWork() {
 					className="fb-page"
 					data-href="https://www.facebook.com/profile.php?id=61551846466907"
 					data-tabs="timeline"
-					data-width=""
-					data-height=""
+					data-width={mobile ? "360" : "500"}
+					data-height="1024"
 					data-small-header="false"
 					data-adapt-container-width="true"
 					data-hide-cover="false"

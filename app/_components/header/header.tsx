@@ -39,7 +39,7 @@ const links = [
 export function Header() {
 	const [opened, { toggle, close }] = useDisclosure(false);
 	const { setColorScheme } = useMantineColorScheme();
-	const computedColorScheme = useComputedColorScheme("light", {
+	const computedColorScheme = useComputedColorScheme("dark", {
 		getInitialValueInEffect: true,
 	});
 	const pathname = usePathname();
@@ -59,6 +59,7 @@ export function Header() {
 		// run this whenever pathname changes and close the modal
 		close();
 	}, [pathname, close]);
+
 	return (
 		<Box>
 			<header className={classes.header}>
